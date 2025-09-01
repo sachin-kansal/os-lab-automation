@@ -3,6 +3,10 @@ ansible-playbook --inventory Ansible_redhat_linux9_hardening\inventory\hosts
 
 ansible-playbook -i Ansible_redhat_linux9_hardening/inventory/hosts Ansible_practice/practice_playbook.yaml -vv --ask-become-pass
 
+if no certs setup
+
+ansible-playbook -i Ansible_redhat_linux9_hardening/inventory/hosts Ansible_practice/practice_playbook.yaml -vv --ask-become-pass --ask-pass
+
 # one of the condition
 
 failed_when: false or true
