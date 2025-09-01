@@ -1,0 +1,63 @@
+
+---
+
+# - name: "list all users"
+#   command: cat /etc/passwd
+#   register: user_list
+# - name: "printing"
+#   debug:
+#     var: user_list.stdout_lines
+
+#create group and user
+
+
+
+- name: create group
+  group:
+    name: ansible_test
+
+- name: check if user already exists
+  command: getent passwd user1
+  register: is_usr
+  failed_when: false
+
+- name: "create users"
+  user:
+    name: user1
+    append: true # add to the group mentioned on groups
+    group: ansible_test #primary group
+    # groups:   empty for now use to add user to the list of groups
+    # authorization: sets authorisation of user on Solaris
+    create_home: true #creates home directory
+    home: '/home/user1' # home directory path of the user
+    password : $6$5.d75mHmaoRHlKkk$GwKTTXjted7EvZbtxp2nsCNCK8vH6.QRWOLHMTIAAOl7fkt9bx/JMKOFb/xzFRbZu47yzvSN3ThiTw/ufxEiI0
+    password_lock: false
+    update_password: "on_create"
+    generate_ssh_key: true
+  when : 
+    - (create_usr | default(false)) | bool
+    - is_usr.stdout == ""
+# list updated users
+
+- name: "list all users"
+  command: cat /etc/passwd
+  register: user_list
+- name: "printing"
+  debug:
+    var: user_list.stdout_lines
+
+
+# check running tasks
+- name: check for running tasks
+  command: pgrep -u user1
+  register: is_process_running
+  failed_when: false #  pgrep return non zero output if no process is running
+
+- name: "remove the user1"
+  user:
+    name: user1
+    state: absent
+    remove: true
+  when: 
+    - is_process_running.stdout == ""
+    - (remove_usr | default(false)) | bool

@@ -1,0 +1,14 @@
+- name: my practice playbook
+  hosts: vm-lab
+  become: true
+
+  vars:
+    create_usr: false
+    remove_usr: false
+    cluster_name: sachin
+
+  roles:
+    # - q1_user
+    # - q2_fileandtemplates
+    # - q3_installing_docker
+    - elasticsearch

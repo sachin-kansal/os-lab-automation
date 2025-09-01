@@ -1,0 +1,2 @@
+free_memory : {{ansible_memfree_mb}}
+details: {{ ansible_memory_mb }}

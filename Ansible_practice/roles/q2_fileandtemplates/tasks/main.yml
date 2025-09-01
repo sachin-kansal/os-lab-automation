@@ -1,0 +1,45 @@
+
+---
+- name: check if created
+  stat: 
+    path: /home/sachin/file_by_ansible.txt
+  register: st
+
+- name: create empty file
+  file:
+    path: /home/sachin/file_by_ansible.txt
+    owner: user1
+    mode: "755"
+    state: touch
+  when: 
+   - not st.stat.exists
+
+- name: add some text
+  blockinfile:
+    create: true
+    path: /home/sachin/file_by_ansible.txt
+    block: |
+      hi i am created by ansible will i ruun as runner is sachin owner is user1
+  when: 
+    - not st.stat.exists
+
+
+- name: print st
+  debug:
+    var:
+      st
+
+- name: delete file
+  file:
+    path: /home/sachin/file_by_ansible.txt
+    state: absent
+  when:
+  -  st.stat.exists
+
+- name: create template file
+  template:
+    src: memoryfile.txt
+    dest: /home/sachin/memoryfile.txt
+    mode: "755"
+    owner: user1
+    force: no

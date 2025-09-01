@@ -1,0 +1,4 @@
+*.iso
+*.png
+*.pdf
+/ssh_keys

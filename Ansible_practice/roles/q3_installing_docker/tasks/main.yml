@@ -1,0 +1,19 @@
+
+- name: add packagemanager in yum.repos.d
+  get_url:
+    url: https://download.docker.com/linux/rhel/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: Clean dnf cache
+  command: dnf clean all
+
+- name: "dnf docker"
+  dnf:
+    name: 
+    - containerd.io 
+    - docker-ce
+    - docker-ce-cli
+    - docker-buildx-plugin
+    - docker-compose-plugin
+    state: latest
+    update_cache: yes

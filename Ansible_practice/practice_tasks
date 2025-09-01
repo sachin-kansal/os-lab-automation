@@ -1,0 +1,41 @@
+Create a VM, take a snapshot. Ideas:
+
+create a user
+
+remove a user
+
+create a user with a specific UID/GID and make sure it’s in a particular group.
+
+add ssh keys to said user
+
+create a file
+
+delete the file
+
+use the template module to create a file. Put the amount of memory the system has in a file.
+
+Now edit an existing file by adding some lines. Add another DNS server or repo to your package manager
+
+Now add some lines in the middle of a file. Use regex to determine where to put the added lines.
+
+similarly, remove lines from a file. Even if it’s a comment, just practice taking it out.
+
+install some programs
+
+Now something harder. Use that snapshot to quickly revert your changes when it doesn’t work. Now set up a basic website:
+
+Install the web server
+
+template out the configuration
+
+create a different user to run the web server. Edit the configuration accordingly
+
+template out the index.html file and fill it with some system statistics (# of CPUs, amount of RAM, HDD space, cpu usage, mem usage, etc.)
+
+make sure the permissions on the website files is correct
+
+change the firewall to allow access
+
+Once you can do that, I think you’d know enough to start tackling actual problems you have.
+
+Another challenge: make your playbook that sets up the website idempotent. Run it a second time and it should make no changes. This one can be tricky, sometimes you may need to write tasks that check if things are a certain way, and then use ‘when:’ conditionals on tasks that make the changes. Ansible should define how things should be, and not just be a list of changes to make. It took a while to wrap my head around this.

@@ -1,0 +1,57 @@
+
+- name: checking package presence
+  ansible.builtin.package_facts:
+    manager : rpm
+    strategy: all
+  register: package_dict
+
+- name: printing elasticsearch
+  debug:
+    var:
+      package_dict.ansible_facts.packages.elasticsearch
+
+- name: check if file exists
+  stat:
+    path: /etc/yum.repos.d/elasticsearch.repo
+  register: repo_file
+
+- name: add repo
+  template:
+    src: elasticsearch.repo
+    dest: /etc/yum.repos.d/elasticsearch.repo
+  when: 
+  - not repo_file.stat.exists
+
+- name: install dnf
+  dnf:
+    name: elasticsearch
+    enablerepo: elasticsearch
+    update_cache: yes
+  when:
+  - " 'elasticsearch' not in package_dict.ansible_facts.packages"
+
+- name: print host ip
+  debug:
+    var: ansible_default_ipv4.address
+
+- name: update etc/elasticsearch/elasticsearch.yml
+  template:
+    src: elasticsearch.yml
+    dest: /etc/elasticsearch/
+    # backup: true
+
+- name: check systemctl status
+  systemd_service:
+    name: elasticsearch
+    state: started
+    scope: system
+    enabled: true
+  notify: reset password
+
+
+- name: writepassword to file
+  lineinfile :
+    path: /etc/elasticsearch/elastic_passwd.txt
+    line: "{{ elastic_password.stdout_lines }}"
+    create: true
+  when : elastic_password is defined
