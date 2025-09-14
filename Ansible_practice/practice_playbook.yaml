@@ -12,3 +12,4 @@
     # - q2_fileandtemplates
     # - q3_installing_docker
     - elasticsearch
+    - kibana

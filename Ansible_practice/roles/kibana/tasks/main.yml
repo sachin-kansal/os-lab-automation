@@ -1,0 +1,75 @@
+
+- name: checking package presence
+  ansible.builtin.package_facts:
+    manager : rpm
+    strategy: all
+  register: package_dict
+
+# - name: printing elasticsearch
+#   debug:
+#     var:
+#       package_dict.ansible_facts.packages.elasticsearch
+
+- name: check if file exists
+  stat:
+    path: /etc/yum.repos.d/kibana.repo
+  register: repo_file
+
+- name: add repo
+  template:
+    src: kibana.repo
+    dest: /etc/yum.repos.d/kibana.repo
+  when: 
+  - not repo_file.stat.exists
+
+- name: install dnf
+  dnf:
+    name: kibana
+    enablerepo: kibana
+    update_cache: yes
+  when:
+  - " 'kibana' not in package_dict.ansible_facts.packages"
+
+- name: print host ip
+  debug:
+    var: ansible_default_ipv4.address
+
+- name: kibana system password
+  command: /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system -a -b -s
+  register: kibana_password
+
+- name: print kibana password
+  debug:
+    var: kibana_password
+
+- name: copy CA from elastic to kibana
+  ansible.builtin.copy:
+    src: "/etc/elasticsearch/certs/http_ca.crt"
+    dest: "/etc/kibana/http_ca.crt"
+    owner: kibana
+    group: kibana
+    mode: '0644'
+    remote_src: yes
+
+- name: update etc/kibana/kibana.yml
+  template:
+    src: kibana.yml
+    dest: /etc/kibana/
+  vars:
+    kibana_password_value: "{{ kibana_password.stdout }}"
+    # backup: true
+
+- name: check systemctl status
+  systemd_service:
+    name: kibana
+    state: restarted
+    scope: system
+    enabled: true
+
+- name: Open port 5601 for Kibana in firewalld
+  firewalld:
+    port: 5601/tcp
+    permanent: true
+    state: enabled
+    immediate: yes
+    zone: public
