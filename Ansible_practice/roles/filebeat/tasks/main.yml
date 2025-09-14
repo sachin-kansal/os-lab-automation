@@ -1,0 +1,9 @@
+
+- name: install file beat
+  dnf:
+    name : filebeat
+    enablerepo: " 'filebeat' not in package_dict.ansible_facts.packages"
+
+- name: print host ip
+  debug:
+    var: ansible_default_ipv4.address

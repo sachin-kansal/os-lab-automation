@@ -13,3 +13,4 @@
     # - q3_installing_docker
     - elasticsearch
     - kibana
+    - filebeat
