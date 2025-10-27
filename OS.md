@@ -74,3 +74,6 @@ dnf search <package>
 dnf list installed
 dnf list recent
 dnf remove <package>
+
+
+
