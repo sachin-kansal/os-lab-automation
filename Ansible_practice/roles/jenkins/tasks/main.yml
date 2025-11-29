@@ -1,0 +1,6 @@
+---
+
+- name: "install jenkins"
+  dnf:
+    name: jenkins
+    update_cache: true

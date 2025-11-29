@@ -211,7 +211,7 @@ sudo oscap xccdf eval \
   --report cis_report.html \
   /usr/share/xml/scap/ssg/content/ssg-rhel9-ds.xml
 
-scp sachin@192.168.31.56:/root/cis_report.html ./report_4.html
+scp sachin@192.168.31.56:/root/cis_report.html ./report_5.html
 
 ### host based Firewall 
 
@@ -264,7 +264,7 @@ EOF
 
 firewall-cmd --permanent --zone=securezone --change-interface=enp0s3
 
- firewall-cmd --list-all --zone="$(firewall-cmd --list-all | awk '/\(active\)/ { print $1 }')" | grep -P -- '^\h*(services:|ports:)'
+firewall-cmd --list-all --zone="$(firewall-cmd --list-all | awk '/\(active\)/ { print $1 }')" | grep -P -- '^\h*(services:|ports:)'
 
 
 
@@ -298,8 +298,13 @@ EOF
 cat <<EOF>> /etc/ssh/sshd_config
 MaxStartups 10:30:60
 EOF
+
 cat <<EOF>> /etc/ssh/sshd_config
 PermitRootLogin no
 EOF
+
 sudo sed -i 's/^\(GSSAPIAuthentication[[:space:]]\+\)yes/\1no/' /etc/ssh/sshd_config.d/50-redhat.conf
 
+
+
+subscription-manager register --username sachinkansal --password fAT8h_.6w3hAUq8
