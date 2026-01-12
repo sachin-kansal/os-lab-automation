@@ -29,7 +29,7 @@ vault write test_ssh/roles/my-role -<<EOH
     "permit-pty": ""
   },
   "key_type": "ca",
-  "default_user": "one97",
+  "default_user": "sachin",
   "ttl": "2h"
 }
 EOH
@@ -118,10 +118,9 @@ chmod 600 ~/.ssh/id_vault-cert.pub
 ### SSH Access
 Use the private key and the signed certificate to authenticate.
 
-ssh -i ~/.ssh/id_vault -i ~/.ssh/id_vault-cert.pub one97@10.18.0.27
+ssh -i ~/.ssh/id_vault -i ~/.ssh/id_vault-cert.pub sachin@<remote ip>
 
 **Note:** OpenSSH usually detects the corresponding `-cert.pub` file automatically if the private key is specified, so the following might also work:
 
 
-ssh -i ~/.ssh/id_vault one97@10.18.0.27
-```
+ssh -i ~/.ssh/id_vault sachin@<remote ip>
