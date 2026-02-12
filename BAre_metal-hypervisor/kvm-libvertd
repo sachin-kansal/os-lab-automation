@@ -1,0 +1,24 @@
+apt install cpu-checker
+
+kvm-ok
+
+yum module install virt
+
+dnf install qemu-img qemu-kvm libvirt libvirt-client virt-manager virt-install virt-viewer -y
+
+apt install -y \
+  qemu-kvm \
+  qemu-utils \
+  libvirt-daemon-system \
+  libvirt-clients \
+  virt-manager \
+  virtinst \
+  virt-viewer
+
+virt-host-validate
+
+
+wget https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.7-aarch64-minimal.iso
+
+
+virt-install --virt-type=kvm --name MasteringKVM01 --vcpus 1 --ram 1024 --os-variant=generic --cdrom=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso  --network=default --graphics vnc --disk size=16 --arch aarch64 --machine virt --cpu host --debug

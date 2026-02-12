@@ -1,0 +1,920 @@
+virt-install --virt-type=kvm --name MasteringKVM01 --vcpus 1 --ram 1024 --os-variant=generic --cdrom=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso  --network=default --graphics vnc --disk size=16 --arch aarch64 --machine virt --cpu host --debug      
+[Wed, 11 Feb 2026 07:34:34 virt-install 7152] DEBUG (cli:204) Version 4.1.0 launched with command line: /usr/bin/virt-install --virt-type=kvm --name MasteringKVM01 --vcpus 1 --ram 1024 --os-variant=generic --cdrom=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso --network=default --graphics vnc --disk size=16 --arch aarch64 --machine virt --cpu host --debug
+[Wed, 11 Feb 2026 07:34:34 virt-install 7152] DEBUG (virtinstall:212) Distilled --network options: ['default']
+[Wed, 11 Feb 2026 07:34:34 virt-install 7152] DEBUG (virtinstall:142) Distilled --disk options: ['size=16']
+[Wed, 11 Feb 2026 07:34:34 virt-install 7152] DEBUG (cli:217) Requesting libvirt URI default       
+[Wed, 11 Feb 2026 07:34:35 virt-install 7152] DEBUG (connection:128) libvirt URI versions library=10.0.0 driver=10.0.0 hypervisor=8.2.2
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (connection:109) Fetched capabilities for qemu:///system: <capabilities>
+
+  <host>
+    <uuid>411ea8b5-b09b-49a2-8ba3-fa4c5ab81c43</uuid>
+    <cpu>
+      <arch>aarch64</arch>
+      <topology sockets='1' dies='1' cores='4' threads='1'/>
+      <pages unit='KiB' size='4'/>
+      <pages unit='KiB' size='64'/>
+      <pages unit='KiB' size='2048'/>
+      <pages unit='KiB' size='32768'/>
+      <pages unit='KiB' size='1048576'/>
+    </cpu>
+    <power_management/>
+    <iommu support='yes'/>
+    <migration_features>
+      <live/>
+      <uri_transports>
+        <uri_transport>tcp</uri_transport>
+        <uri_transport>rdma</uri_transport>
+      </uri_transports>
+    </migration_features>
+    <topology>
+      <cells num='1'>
+        <cell id='0'>
+          <memory unit='KiB'>4079900</memory>
+          <cpus num='4'>
+            <cpu id='0' socket_id='0' die_id='0' core_id='0' siblings='0'/>
+            <cpu id='1' socket_id='0' die_id='0' core_id='1' siblings='1'/>
+            <cpu id='2' socket_id='0' die_id='0' core_id='2' siblings='2'/>
+            <cpu id='3' socket_id='0' die_id='0' core_id='3' siblings='3'/>
+          </cpus>
+        </cell>
+      </cells>
+    </topology>
+    <secmodel>
+      <model>apparmor</model>
+      <doi>0</doi>
+    </secmodel>
+    <secmodel>
+      <model>dac</model>
+      <doi>0</doi>
+      <baselabel type='kvm'>+64055:+993</baselabel>
+      <baselabel type='qemu'>+64055:+993</baselabel>
+    </secmodel>
+  </host>
+
+  <guest>
+    <os_type>hvm</os_type>
+    <arch name='armv6l'>
+      <wordsize>32</wordsize>
+      <emulator>/usr/bin/qemu-system-arm</emulator>
+      <machine maxCpus='512'>virt-8.2</machine>
+      <machine canonical='virt-8.2' maxCpus='512'>virt</machine>
+      <machine maxCpus='2'>qcom-dc-scm-v1-bmc</machine>
+      <machine maxCpus='2'>mori-bmc</machine>
+      <machine maxCpus='2'>ast2600-evb</machine>
+      <machine maxCpus='1'>borzoi</machine>
+      <machine maxCpus='1'>tiogapass-bmc</machine>
+      <machine maxCpus='1'>spitz</machine>
+      <machine maxCpus='255'>virt-2.7</machine>
+      <machine maxCpus='2'>nuri</machine>
+      <machine maxCpus='2'>mcimx7d-sabre</machine>
+      <machine maxCpus='1'>romulus-bmc</machine>
+      <machine maxCpus='512'>virt-3.0</machine>
+      <machine maxCpus='512'>virt-5.0</machine>
+      <machine maxCpus='2'>npcm750-evb</machine>
+      <machine maxCpus='255'>virt-2.10</machine>
+      <machine maxCpus='2'>rainier-bmc</machine>
+      <machine maxCpus='1'>mps3-an547</machine>
+      <machine maxCpus='2'>musca-b1</machine>
+      <machine maxCpus='4'>realview-pbx-a9</machine>
+      <machine maxCpus='1'>versatileab</machine>
+      <machine maxCpus='1'>kzm</machine>
+      <machine maxCpus='255'>virt-2.8</machine>
+      <machine maxCpus='2'>fby35-bmc</machine>
+      <machine maxCpus='2'>musca-a</machine>
+      <machine maxCpus='512'>virt-3.1</machine>
+      <machine maxCpus='1'>mcimx6ul-evk</machine>
+      <machine maxCpus='512'>virt-5.1</machine>
+      <machine maxCpus='2'>smdkc210</machine>
+      <machine maxCpus='1'>sx1</machine>
+      <machine maxCpus='255'>virt-2.11</machine>
+      <machine maxCpus='1'>imx25-pdk</machine>
+      <machine maxCpus='1'>stm32vldiscovery</machine>
+      <machine maxCpus='255'>virt-2.9</machine>
+      <machine maxCpus='4'>orangepi-pc</machine>
+      <machine maxCpus='1'>quanta-q71l-bmc</machine>
+      <machine maxCpus='1'>z2</machine>
+      <machine maxCpus='512'>virt-5.2</machine>
+      <machine maxCpus='1'>xilinx-zynq-a9</machine>
+      <machine maxCpus='1'>tosa</machine>
+      <machine maxCpus='1'>mps2-an500</machine>
+      <machine maxCpus='255'>virt-2.12</machine>
+      <machine maxCpus='2'>mps2-an521</machine>
+      <machine maxCpus='4'>sabrelite</machine>
+      <machine maxCpus='1'>mps2-an511</machine>
+      <machine maxCpus='1'>canon-a1100</machine>
+      <machine maxCpus='1'>realview-eb</machine>
+      <machine maxCpus='2'>quanta-gbs-bmc</machine>
+      <machine maxCpus='1'>emcraft-sf2</machine>
+      <machine maxCpus='1'>realview-pb-a8</machine>
+      <machine maxCpus='1'>yosemitev2-bmc</machine>
+      <machine maxCpus='512'>virt-7.0</machine>
+      <machine maxCpus='512'>virt-4.0</machine>
+      <machine maxCpus='1'>raspi1ap</machine>
+      <machine maxCpus='1'>palmetto-bmc</machine>
+      <machine maxCpus='1'>sx1-v1</machine>
+      <machine maxCpus='1'>n810</machine>
+      <machine maxCpus='1'>g220a-bmc</machine>
+      <machine maxCpus='1'>n800</machine>
+      <machine maxCpus='512'>virt-7.1</machine>
+      <machine maxCpus='2'>tacoma-bmc</machine>
+      <machine maxCpus='2'>bletchley-bmc</machine>
+      <machine maxCpus='512'>virt-4.1</machine>
+      <machine maxCpus='2'>quanta-gsj</machine>
+      <machine maxCpus='1'>versatilepb</machine>
+      <machine maxCpus='1'>terrier</machine>
+      <machine maxCpus='1'>mainstone</machine>
+      <machine maxCpus='4'>realview-eb-mpcore</machine>
+      <machine maxCpus='1'>integratorcp</machine>
+      <machine maxCpus='512'>virt-7.2</machine>
+      <machine maxCpus='1'>supermicrox11-bmc</machine>
+      <machine maxCpus='512'>virt-4.2</machine>
+      <machine maxCpus='1'>witherspoon-bmc</machine>
+      <machine maxCpus='2'>qcom-firework-bmc</machine>
+      <machine maxCpus='2'>mps3-an524</machine>
+      <machine maxCpus='2'>kudo-bmc</machine>
+      <machine maxCpus='4'>vexpress-a9</machine>
+      <machine maxCpus='4'>midway</machine>
+      <machine maxCpus='1'>musicpal</machine>
+      <machine maxCpus='1'>lm3s811evb</machine>
+      <machine maxCpus='1'>lm3s6965evb</machine>
+      <machine maxCpus='1'>supermicro-x11spi-bmc</machine>
+      <machine maxCpus='1'>microbit</machine>
+      <machine maxCpus='3'>fby35</machine>
+      <machine maxCpus='1'>mps2-an505</machine>
+      <machine maxCpus='1'>mps2-an385</machine>
+      <machine maxCpus='512'>virt-6.0</machine>
+      <machine maxCpus='512'>virt-8.0</machine>
+      <machine maxCpus='1'>cubieboard</machine>
+      <machine maxCpus='1'>ast1030-evb</machine>
+      <machine maxCpus='1'>verdex</machine>
+      <machine maxCpus='1'>netduino2</machine>
+      <machine maxCpus='4'>bpim2u</machine>
+      <machine maxCpus='1'>mps2-an386</machine>
+      <machine maxCpus='1'>olimex-stm32-h405</machine>
+      <machine maxCpus='512'>virt-6.1</machine>
+      <machine maxCpus='512'>virt-8.1</machine>
+      <machine maxCpus='4'>raspi2b</machine>
+      <machine maxCpus='4'>vexpress-a15</machine>
+      <machine maxCpus='2'>fuji-bmc</machine>
+      <machine maxCpus='512'>virt-6.2</machine>
+      <machine maxCpus='1'>sonorapass-bmc</machine>
+      <machine maxCpus='1'>cheetah</machine>
+      <machine maxCpus='255'>virt-2.6</machine>
+      <machine maxCpus='1'>ast2500-evb</machine>
+      <machine maxCpus='4'>highbank</machine>
+      <machine maxCpus='1'>akita</machine>
+      <machine maxCpus='1'>connex</machine>
+      <machine maxCpus='1'>netduinoplus2</machine>
+      <machine maxCpus='1'>collie</machine>
+      <machine maxCpus='1'>raspi0</machine>
+      <machine maxCpus='1'>fp5280g2-bmc</machine>
+      <domain type='qemu'/>
+    </arch>
+    <features>
+      <cpuselection/>
+      <deviceboot/>
+      <disksnapshot default='on' toggle='no'/>
+      <externalSnapshot/>
+    </features>
+  </guest>
+
+  <guest>
+    <os_type>hvm</os_type>
+    <arch name='armv7l'>
+      <wordsize>32</wordsize>
+      <emulator>/usr/bin/qemu-system-aarch64</emulator>
+      <machine maxCpus='512'>virt-8.2</machine>
+      <machine canonical='virt-8.2' maxCpus='512'>virt</machine>
+      <machine maxCpus='2'>qcom-dc-scm-v1-bmc</machine>
+      <machine maxCpus='2'>mori-bmc</machine>
+      <machine maxCpus='2'>ast2600-evb</machine>
+      <machine maxCpus='1'>borzoi</machine>
+      <machine maxCpus='1'>tiogapass-bmc</machine>
+      <machine maxCpus='1'>spitz</machine>
+      <machine maxCpus='255'>virt-2.7</machine>
+      <machine maxCpus='2'>nuri</machine>
+      <machine maxCpus='2'>mcimx7d-sabre</machine>
+      <machine maxCpus='1'>romulus-bmc</machine>
+      <machine maxCpus='512'>virt-3.0</machine>
+      <machine maxCpus='512'>virt-5.0</machine>
+      <machine maxCpus='2'>npcm750-evb</machine>
+      <machine maxCpus='255'>virt-2.10</machine>
+      <machine maxCpus='2'>rainier-bmc</machine>
+      <machine maxCpus='1'>mps3-an547</machine>
+      <machine maxCpus='2'>musca-b1</machine>
+      <machine maxCpus='4'>realview-pbx-a9</machine>
+      <machine maxCpus='1'>versatileab</machine>
+      <machine maxCpus='1'>kzm</machine>
+      <machine maxCpus='255'>virt-2.8</machine>
+      <machine maxCpus='2'>fby35-bmc</machine>
+      <machine maxCpus='2'>musca-a</machine>
+      <machine maxCpus='512'>virt-3.1</machine>
+      <machine maxCpus='1'>mcimx6ul-evk</machine>
+      <machine maxCpus='512'>virt-5.1</machine>
+      <machine maxCpus='2'>smdkc210</machine>
+      <machine maxCpus='1'>sx1</machine>
+      <machine maxCpus='255'>virt-2.11</machine>
+      <machine maxCpus='1'>imx25-pdk</machine>
+      <machine maxCpus='1'>stm32vldiscovery</machine>
+      <machine maxCpus='255'>virt-2.9</machine>
+      <machine maxCpus='4'>orangepi-pc</machine>
+      <machine maxCpus='1'>quanta-q71l-bmc</machine>
+      <machine maxCpus='1'>z2</machine>
+      <machine maxCpus='512'>virt-5.2</machine>
+      <machine maxCpus='1'>xilinx-zynq-a9</machine>
+      <machine maxCpus='6'>xlnx-zcu102</machine>
+      <machine maxCpus='1'>tosa</machine>
+      <machine maxCpus='1'>mps2-an500</machine>
+      <machine maxCpus='255'>virt-2.12</machine>
+      <machine maxCpus='2'>mps2-an521</machine>
+      <machine maxCpus='4'>sabrelite</machine>
+      <machine maxCpus='1'>mps2-an511</machine>
+      <machine maxCpus='1'>canon-a1100</machine>
+      <machine maxCpus='1'>realview-eb</machine>
+      <machine maxCpus='2'>quanta-gbs-bmc</machine>
+      <machine maxCpus='1'>emcraft-sf2</machine>
+      <machine maxCpus='1'>realview-pb-a8</machine>
+      <machine maxCpus='512'>sbsa-ref</machine>
+      <machine maxCpus='1'>yosemitev2-bmc</machine>
+      <machine maxCpus='512'>virt-7.0</machine>
+      <machine maxCpus='512'>virt-4.0</machine>
+      <machine maxCpus='1'>raspi1ap</machine>
+      <machine maxCpus='1'>palmetto-bmc</machine>
+      <machine maxCpus='1'>sx1-v1</machine>
+      <machine maxCpus='1'>n810</machine>
+      <machine maxCpus='1'>g220a-bmc</machine>
+      <machine maxCpus='1'>n800</machine>
+      <machine maxCpus='512'>virt-7.1</machine>
+      <machine maxCpus='2'>tacoma-bmc</machine>
+      <machine maxCpus='2'>bletchley-bmc</machine>
+      <machine maxCpus='512'>virt-4.1</machine>
+      <machine maxCpus='2'>quanta-gsj</machine>
+      <machine maxCpus='1'>versatilepb</machine>
+      <machine maxCpus='1'>terrier</machine>
+      <machine maxCpus='1'>mainstone</machine>
+      <machine maxCpus='4'>realview-eb-mpcore</machine>
+      <machine maxCpus='1'>integratorcp</machine>
+      <machine maxCpus='512'>virt-7.2</machine>
+      <machine maxCpus='1'>supermicrox11-bmc</machine>
+      <machine maxCpus='512'>virt-4.2</machine>
+      <machine maxCpus='1'>witherspoon-bmc</machine>
+      <machine maxCpus='2'>qcom-firework-bmc</machine>
+      <machine maxCpus='2'>mps3-an524</machine>
+      <machine maxCpus='2'>kudo-bmc</machine>
+      <machine maxCpus='4'>vexpress-a9</machine>
+      <machine maxCpus='4'>midway</machine>
+      <machine maxCpus='1'>musicpal</machine>
+      <machine maxCpus='1'>lm3s811evb</machine>
+      <machine maxCpus='1'>lm3s6965evb</machine>
+      <machine maxCpus='1'>supermicro-x11spi-bmc</machine>
+      <machine maxCpus='1'>microbit</machine>
+      <machine maxCpus='3'>fby35</machine>
+      <machine maxCpus='1'>mps2-an505</machine>
+      <machine maxCpus='1'>mps2-an385</machine>
+      <machine maxCpus='512'>virt-6.0</machine>
+      <machine maxCpus='512'>virt-8.0</machine>
+      <machine maxCpus='4'>raspi3ap</machine>
+      <machine maxCpus='1'>cubieboard</machine>
+      <machine maxCpus='1'>ast1030-evb</machine>
+      <machine maxCpus='1'>verdex</machine>
+      <machine maxCpus='1'>netduino2</machine>
+      <machine maxCpus='4'>bpim2u</machine>
+      <machine maxCpus='4'>xlnx-versal-virt</machine>
+      <machine maxCpus='1'>mps2-an386</machine>
+      <machine maxCpus='1'>olimex-stm32-h405</machine>
+      <machine maxCpus='512'>virt-6.1</machine>
+      <machine maxCpus='512'>virt-8.1</machine>
+      <machine maxCpus='4'>raspi3b</machine>
+      <machine maxCpus='4'>raspi2b</machine>
+      <machine maxCpus='4'>vexpress-a15</machine>
+      <machine maxCpus='2'>fuji-bmc</machine>
+      <machine maxCpus='512'>virt-6.2</machine>
+      <machine maxCpus='1'>x-remote</machine>
+      <machine maxCpus='1'>cheetah</machine>
+      <machine maxCpus='1'>sonorapass-bmc</machine>
+      <machine maxCpus='255'>virt-2.6</machine>
+      <machine maxCpus='1'>ast2500-evb</machine>
+      <machine maxCpus='4'>highbank</machine>
+      <machine maxCpus='1'>akita</machine>
+      <machine maxCpus='1'>connex</machine>
+      <machine maxCpus='1'>netduinoplus2</machine>
+      <machine maxCpus='1'>collie</machine>
+      <machine maxCpus='1'>raspi0</machine>
+      <machine maxCpus='1'>fp5280g2-bmc</machine>
+      <domain type='qemu'/>
+      <domain type='kvm'/>
+    </arch>
+    <features>
+      <cpuselection/>
+      <deviceboot/>
+      <disksnapshot default='on' toggle='no'/>
+      <externalSnapshot/>
+    </features>
+  </guest>
+
+  <guest>
+    <os_type>hvm</os_type>
+    <arch name='aarch64'>
+      <wordsize>64</wordsize>
+      <emulator>/usr/bin/qemu-system-aarch64</emulator>
+      <machine maxCpus='512'>virt-8.2</machine>
+      <machine canonical='virt-8.2' maxCpus='512'>virt</machine>
+      <machine maxCpus='2'>qcom-dc-scm-v1-bmc</machine>
+      <machine maxCpus='2'>mori-bmc</machine>
+      <machine maxCpus='2'>ast2600-evb</machine>
+      <machine maxCpus='1'>borzoi</machine>
+      <machine maxCpus='1'>tiogapass-bmc</machine>
+      <machine maxCpus='1'>spitz</machine>
+      <machine maxCpus='255'>virt-2.7</machine>
+      <machine maxCpus='2'>nuri</machine>
+      <machine maxCpus='2'>mcimx7d-sabre</machine>
+      <machine maxCpus='1'>romulus-bmc</machine>
+      <machine maxCpus='512'>virt-3.0</machine>
+      <machine maxCpus='512'>virt-5.0</machine>
+      <machine maxCpus='2'>npcm750-evb</machine>
+      <machine maxCpus='255'>virt-2.10</machine>
+      <machine maxCpus='2'>rainier-bmc</machine>
+      <machine maxCpus='1'>mps3-an547</machine>
+      <machine maxCpus='2'>musca-b1</machine>
+      <machine maxCpus='4'>realview-pbx-a9</machine>
+      <machine maxCpus='1'>versatileab</machine>
+      <machine maxCpus='1'>kzm</machine>
+      <machine maxCpus='255'>virt-2.8</machine>
+      <machine maxCpus='2'>fby35-bmc</machine>
+      <machine maxCpus='2'>musca-a</machine>
+      <machine maxCpus='512'>virt-3.1</machine>
+      <machine maxCpus='1'>mcimx6ul-evk</machine>
+      <machine maxCpus='512'>virt-5.1</machine>
+      <machine maxCpus='2'>smdkc210</machine>
+      <machine maxCpus='1'>sx1</machine>
+      <machine maxCpus='255'>virt-2.11</machine>
+      <machine maxCpus='1'>imx25-pdk</machine>
+      <machine maxCpus='1'>stm32vldiscovery</machine>
+      <machine maxCpus='255'>virt-2.9</machine>
+      <machine maxCpus='4'>orangepi-pc</machine>
+      <machine maxCpus='1'>quanta-q71l-bmc</machine>
+      <machine maxCpus='1'>z2</machine>
+      <machine maxCpus='512'>virt-5.2</machine>
+      <machine maxCpus='1'>xilinx-zynq-a9</machine>
+      <machine maxCpus='6'>xlnx-zcu102</machine>
+      <machine maxCpus='1'>tosa</machine>
+      <machine maxCpus='1'>mps2-an500</machine>
+      <machine maxCpus='255'>virt-2.12</machine>
+      <machine maxCpus='2'>mps2-an521</machine>
+      <machine maxCpus='4'>sabrelite</machine>
+      <machine maxCpus='1'>mps2-an511</machine>
+      <machine maxCpus='1'>canon-a1100</machine>
+      <machine maxCpus='1'>realview-eb</machine>
+      <machine maxCpus='2'>quanta-gbs-bmc</machine>
+      <machine maxCpus='1'>emcraft-sf2</machine>
+      <machine maxCpus='1'>realview-pb-a8</machine>
+      <machine maxCpus='512'>sbsa-ref</machine>
+      <machine maxCpus='1'>yosemitev2-bmc</machine>
+      <machine maxCpus='512'>virt-7.0</machine>
+      <machine maxCpus='512'>virt-4.0</machine>
+      <machine maxCpus='1'>raspi1ap</machine>
+      <machine maxCpus='1'>palmetto-bmc</machine>
+      <machine maxCpus='1'>sx1-v1</machine>
+      <machine maxCpus='1'>n810</machine>
+      <machine maxCpus='1'>g220a-bmc</machine>
+      <machine maxCpus='1'>n800</machine>
+      <machine maxCpus='512'>virt-7.1</machine>
+      <machine maxCpus='2'>tacoma-bmc</machine>
+      <machine maxCpus='2'>bletchley-bmc</machine>
+      <machine maxCpus='512'>virt-4.1</machine>
+      <machine maxCpus='2'>quanta-gsj</machine>
+      <machine maxCpus='1'>versatilepb</machine>
+      <machine maxCpus='1'>terrier</machine>
+      <machine maxCpus='1'>mainstone</machine>
+      <machine maxCpus='4'>realview-eb-mpcore</machine>
+      <machine maxCpus='1'>integratorcp</machine>
+      <machine maxCpus='512'>virt-7.2</machine>
+      <machine maxCpus='1'>supermicrox11-bmc</machine>
+      <machine maxCpus='512'>virt-4.2</machine>
+      <machine maxCpus='1'>witherspoon-bmc</machine>
+      <machine maxCpus='2'>qcom-firework-bmc</machine>
+      <machine maxCpus='2'>mps3-an524</machine>
+      <machine maxCpus='2'>kudo-bmc</machine>
+      <machine maxCpus='4'>vexpress-a9</machine>
+      <machine maxCpus='4'>midway</machine>
+      <machine maxCpus='1'>musicpal</machine>
+      <machine maxCpus='1'>lm3s811evb</machine>
+      <machine maxCpus='1'>lm3s6965evb</machine>
+      <machine maxCpus='1'>supermicro-x11spi-bmc</machine>
+      <machine maxCpus='1'>microbit</machine>
+      <machine maxCpus='3'>fby35</machine>
+      <machine maxCpus='1'>mps2-an505</machine>
+      <machine maxCpus='1'>mps2-an385</machine>
+      <machine maxCpus='512'>virt-6.0</machine>
+      <machine maxCpus='512'>virt-8.0</machine>
+      <machine maxCpus='4'>raspi3ap</machine>
+      <machine maxCpus='1'>cubieboard</machine>
+      <machine maxCpus='1'>ast1030-evb</machine>
+      <machine maxCpus='1'>verdex</machine>
+      <machine maxCpus='1'>netduino2</machine>
+      <machine maxCpus='4'>bpim2u</machine>
+      <machine maxCpus='4'>xlnx-versal-virt</machine>
+      <machine maxCpus='1'>mps2-an386</machine>
+      <machine maxCpus='1'>olimex-stm32-h405</machine>
+      <machine maxCpus='512'>virt-6.1</machine>
+      <machine maxCpus='512'>virt-8.1</machine>
+      <machine maxCpus='4'>raspi3b</machine>
+      <machine maxCpus='4'>raspi2b</machine>
+      <machine maxCpus='4'>vexpress-a15</machine>
+      <machine maxCpus='2'>fuji-bmc</machine>
+      <machine maxCpus='512'>virt-6.2</machine>
+      <machine maxCpus='1'>x-remote</machine>
+      <machine maxCpus='1'>cheetah</machine>
+      <machine maxCpus='1'>sonorapass-bmc</machine>
+      <machine maxCpus='255'>virt-2.6</machine>
+      <machine maxCpus='1'>ast2500-evb</machine>
+      <machine maxCpus='4'>highbank</machine>
+      <machine maxCpus='1'>akita</machine>
+      <machine maxCpus='1'>connex</machine>
+      <machine maxCpus='1'>netduinoplus2</machine>
+      <machine maxCpus='1'>collie</machine>
+      <machine maxCpus='1'>raspi0</machine>
+      <machine maxCpus='1'>fp5280g2-bmc</machine>
+      <domain type='qemu'/>
+      <domain type='kvm'/>
+    </arch>
+    <features>
+      <acpi default='on' toggle='yes'/>
+      <cpuselection/>
+      <deviceboot/>
+      <disksnapshot default='on' toggle='no'/>
+      <externalSnapshot/>
+    </features>
+  </guest>
+
+</capabilities>
+
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (cli:220) Received libvirt URI qemu:///system  
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (diskbackend:161) Attempting to build pool=images target=/var/lib/libvirt/images
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (storage:378) Creating storage pool 'images' with xml:
+<pool type="dir">
+  <name>images</name>
+  <target>
+    <path>/var/lib/libvirt/images</path>
+  </target>
+</pool>
+
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (guest:341) Setting Guest osinfo name <_OsVariant name=generic>
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (guest:341) Setting Guest osinfo name <_OsVariant name=generic>
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (installer:544) installer.detect_distro returned=rocky9
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (storage:137) Found default pool name=images target=/var/lib/libvirt/images
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (storage:207) refreshing pool=images
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (disk:360) Creating volume 'MasteringKVM01.qcow2' on pool 'images'
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (disk:656) disk.set_vol_install: name=MasteringKVM01.qcow2 poolxml=
+<pool type='dir'>
+  <name>images</name>
+  <uuid>065c1233-9ed9-418a-bd11-b440dc5fedeb</uuid>
+  <capacity unit='bytes'>62276354048</capacity>
+  <allocation unit='bytes'>7319052288</allocation>
+  <available unit='bytes'>54957301760</available>
+  <source>
+  </source>
+  <target>
+    <path>/var/lib/libvirt/images</path>
+    <permissions>
+      <mode>0711</mode>
+      <owner>0</owner>
+      <group>0</group>
+    </permissions>
+  </target>
+</pool>
+
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (guest:546) Prefer EFI => True
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (domcapabilities:245) Fetched domain capabilities for (/usr/bin/qemu-system-aarch64,aarch64,virt,kvm): <domainCapabilities>
+  <path>/usr/bin/qemu-system-aarch64</path>
+  <domain>kvm</domain>
+  <machine>virt-8.2</machine>
+  <arch>aarch64</arch>
+  <vcpu max='8'/>
+  <iothreads supported='yes'/>
+  <os supported='yes'>
+    <enum name='firmware'>
+      <value>efi</value>
+    </enum>
+    <loader supported='yes'>
+      <value>/usr/share/AAVMF/AAVMF_CODE.ms.fd</value>
+      <value>/usr/share/AAVMF/AAVMF_CODE.secboot.fd</value>
+      <value>/usr/share/AAVMF/AAVMF_CODE.no-secboot.fd</value>
+      <enum name='type'>
+        <value>rom</value>
+        <value>pflash</value>
+      </enum>
+      <enum name='readonly'>
+        <value>yes</value>
+        <value>no</value>
+      </enum>
+      <enum name='secure'>
+        <value>no</value>
+      </enum>
+    </loader>
+  </os>
+  <cpu>
+    <mode name='host-passthrough' supported='yes'>
+      <enum name='hostPassthroughMigratable'>
+        <value>off</value>
+      </enum>
+    </mode>
+    <mode name='maximum' supported='yes'>
+      <enum name='maximumMigratable'>
+        <value>on</value>
+        <value>off</value>
+      </enum>
+    </mode>
+    <mode name='host-model' supported='no'/>
+    <mode name='custom' supported='yes'>
+      <model usable='unknown' vendor='unknown'>neoverse-n2</model>
+      <model usable='unknown' vendor='unknown'>pxa270-c0</model>
+      <model usable='unknown' vendor='unknown'>cortex-a15</model>
+      <model usable='unknown' vendor='unknown'>pxa270-b0</model>
+      <model usable='unknown' vendor='unknown'>cortex-m4</model>
+      <model usable='unknown' vendor='unknown'>cortex-a57</model>
+      <model usable='unknown' vendor='unknown'>pxa270-a0</model>
+      <model usable='unknown' vendor='unknown'>arm1176</model>
+      <model usable='unknown' vendor='unknown'>pxa270-b1</model>
+      <model usable='unknown' vendor='unknown'>cortex-a7</model>
+      <model usable='unknown' vendor='unknown'>pxa270-a1</model>
+      <model usable='unknown' vendor='unknown'>cortex-a76</model>
+      <model usable='unknown' vendor='unknown'>a64fx</model>
+      <model usable='unknown' vendor='unknown'>cortex-a8</model>
+      <model usable='unknown' vendor='unknown'>neoverse-v1</model>
+      <model usable='unknown' vendor='unknown'>cortex-r5</model>
+      <model usable='unknown' vendor='unknown'>ti925t</model>
+      <model usable='unknown' vendor='unknown'>cortex-r5f</model>
+      <model usable='unknown' vendor='unknown'>arm1026</model>
+      <model usable='unknown' vendor='unknown'>cortex-a9</model>
+      <model usable='unknown' vendor='unknown'>cortex-m7</model>
+      <model usable='unknown' vendor='unknown'>pxa270</model>
+      <model usable='unknown' vendor='unknown'>pxa260</model>
+      <model usable='unknown' vendor='unknown'>pxa250</model>
+      <model usable='unknown' vendor='unknown'>pxa270-c5</model>
+      <model usable='unknown' vendor='unknown'>pxa261</model>
+      <model usable='unknown' vendor='unknown'>pxa262</model>
+      <model usable='unknown' vendor='unknown'>cortex-a710</model>
+      <model usable='unknown' vendor='unknown'>cortex-r52</model>
+      <model usable='unknown' vendor='unknown'>sa1110</model>
+      <model usable='unknown' vendor='unknown'>sa1100</model>
+      <model usable='unknown' vendor='unknown'>max</model>
+      <model usable='unknown' vendor='unknown'>cortex-a53</model>
+      <model usable='unknown' vendor='unknown'>cortex-m0</model>
+      <model usable='unknown' vendor='unknown'>cortex-m33</model>
+      <model usable='unknown' vendor='unknown'>cortex-a72</model>
+      <model usable='unknown' vendor='unknown'>arm946</model>
+      <model usable='unknown' vendor='unknown'>pxa255</model>
+      <model usable='unknown' vendor='unknown'>cortex-a55</model>
+      <model usable='unknown' vendor='unknown'>arm11mpcore</model>
+      <model usable='unknown' vendor='unknown'>cortex-m55</model>
+      <model usable='unknown' vendor='unknown'>neoverse-n1</model>
+      <model usable='unknown' vendor='unknown'>arm926</model>
+      <model usable='unknown' vendor='unknown'>arm1136</model>
+      <model usable='unknown' vendor='unknown'>cortex-a35</model>
+      <model usable='unknown' vendor='unknown'>arm1136-r2</model>
+      <model usable='unknown' vendor='unknown'>cortex-m3</model>
+    </mode>
+  </cpu>
+  <memoryBacking supported='yes'>
+    <enum name='sourceType'>
+      <value>file</value>
+      <value>anonymous</value>
+      <value>memfd</value>
+    </enum>
+  </memoryBacking>
+  <devices>
+    <disk supported='yes'>
+      <enum name='diskDevice'>
+        <value>disk</value>
+        <value>cdrom</value>
+        <value>floppy</value>
+        <value>lun</value>
+      </enum>
+      <enum name='bus'>
+        <value>fdc</value>
+        <value>scsi</value>
+        <value>virtio</value>
+        <value>usb</value>
+        <value>sata</value>
+      </enum>
+      <enum name='model'>
+        <value>virtio</value>
+        <value>virtio-transitional</value>
+        <value>virtio-non-transitional</value>
+      </enum>
+    </disk>
+    <graphics supported='yes'>
+      <enum name='type'>
+        <value>sdl</value>
+        <value>vnc</value>
+        <value>spice</value>
+        <value>egl-headless</value>
+        <value>dbus</value>
+      </enum>
+    </graphics>
+    <video supported='yes'>
+      <enum name='modelType'>
+        <value>vga</value>
+        <value>cirrus</value>
+        <value>virtio</value>
+        <value>none</value>
+        <value>bochs</value>
+        <value>ramfb</value>
+      </enum>
+    </video>
+    <hostdev supported='yes'>
+      <enum name='mode'>
+        <value>subsystem</value>
+      </enum>
+      <enum name='startupPolicy'>
+        <value>default</value>
+        <value>mandatory</value>
+        <value>requisite</value>
+        <value>optional</value>
+      </enum>
+      <enum name='subsysType'>
+        <value>usb</value>
+        <value>pci</value>
+        <value>scsi</value>
+      </enum>
+      <enum name='capsType'/>
+      <enum name='pciBackend'>
+        <value>default</value>
+        <value>vfio</value>
+      </enum>
+    </hostdev>
+    <rng supported='yes'>
+      <enum name='model'>
+        <value>virtio</value>
+        <value>virtio-transitional</value>
+        <value>virtio-non-transitional</value>
+      </enum>
+      <enum name='backendModel'>
+        <value>random</value>
+        <value>egd</value>
+        <value>builtin</value>
+      </enum>
+    </rng>
+    <filesystem supported='yes'>
+      <enum name='driverType'>
+        <value>path</value>
+        <value>handle</value>
+        <value>virtiofs</value>
+      </enum>
+    </filesystem>
+    <tpm supported='yes'>
+      <enum name='model'>
+        <value>tpm-tis</value>
+      </enum>
+      <enum name='backendModel'>
+        <value>passthrough</value>
+        <value>emulator</value>
+        <value>external</value>
+      </enum>
+      <enum name='backendVersion'>
+        <value>1.2</value>
+        <value>2.0</value>
+      </enum>
+    </tpm>
+    <redirdev supported='yes'>
+      <enum name='bus'>
+        <value>usb</value>
+      </enum>
+    </redirdev>
+    <channel supported='yes'>
+      <enum name='type'>
+        <value>pty</value>
+        <value>spicevmc</value>
+      </enum>
+    </channel>
+    <crypto supported='yes'>
+      <enum name='model'>
+        <value>virtio</value>
+      </enum>
+      <enum name='type'>
+        <value>qemu</value>
+      </enum>
+      <enum name='backendModel'>
+        <value>builtin</value>
+      </enum>
+    </crypto>
+  </devices>
+  <features>
+    <gic supported='yes'>
+      <enum name='version'>
+        <value>2</value>
+      </enum>
+    </gic>
+    <vmcoreinfo supported='yes'/>
+    <genid supported='no'/>
+    <backingStoreInput supported='yes'/>
+    <backup supported='yes'/>
+    <async-teardown supported='yes'/>
+    <sev supported='no'/>
+    <sgx supported='no'/>
+  </features>
+</domainCapabilities>
+
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (guest:1059) Adding default TPM
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (guest:1113) Using num_pcie_root_ports=14
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (disk:239) DeviceDisk.check_path_search path=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (disk:239) DeviceDisk.check_path_search path=/var/lib/libvirt/images/MasteringKVM01.qcow2
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (disk:239) DeviceDisk.check_path_search path=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] WARNING (virtinstall:373) Using --osinfo generic, VM performance may suffer. Specify an accurate OS for optimal results.
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] WARNING (cli:1940) Graphics requested but DISPLAY is not set. Not running virt-viewer.
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] WARNING (virtinstall:698) No console to launch for the guest, defaulting to --wait -1
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (cli:266)
+Starting install...
+
+Starting install...
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (storage:659) Creating storage volume 'MasteringKVM01.qcow2' with xml:
+<volume>
+  <name>MasteringKVM01.qcow2</name>
+  <capacity>17179869184</capacity>
+  <allocation>0</allocation>
+  <target>
+    <format type="qcow2"/>
+    <features>
+      <lazy_refcounts/>
+    </features>
+  </target>
+</volume>
+
+[Wed, 11 Feb 2026 07:34:36 virt-install 7152] DEBUG (storage:697) Using vol create flags=1
+Allocating 'MasteringKVM01.qcow2'                                                                                     |    0 B  00:00:00 ... 
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (storage:701) Storage volume 'MasteringKVM01.qcow2' install complete.
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (guest:341) Setting Guest osinfo name <_OsVariant name=generic>
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (installer:587) Generated initial_xml:
+<domain type="kvm">
+  <name>MasteringKVM01</name>
+  <uuid>456fd994-561e-42cb-a0df-562ef0bdac15</uuid>
+  <memory>1048576</memory>
+  <currentMemory>1048576</currentMemory>
+  <vcpu>1</vcpu>
+  <os firmware="efi">
+    <type arch="aarch64" machine="virt">hvm</type>
+    <boot dev="cdrom"/>
+    <boot dev="hd"/>
+  </os>
+  <features>
+    <acpi/>
+  </features>
+  <cpu mode="host-model"/>
+  <clock offset="utc"/>
+  <devices>
+    <emulator>/usr/bin/qemu-system-aarch64</emulator>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2" discard="unmap"/>
+      <source file="/var/lib/libvirt/images/MasteringKVM01.qcow2"/>
+      <target dev="vda" bus="virtio"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw"/>
+      <source file="/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso"/>
+      <target dev="sda" bus="scsi"/>
+      <readonly/>
+    </disk>
+    <controller type="usb" model="qemu-xhci" ports="15"/>
+    <controller type="scsi" model="virtio-scsi"/>
+    <controller type="pci" model="pcie-root"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <interface type="network">
+      <source network="default"/>
+      <mac address="52:54:00:df:e5:c8"/>
+      <model type="virtio"/>
+    </interface>
+    <console type="pty"/>
+    <channel type="unix">
+      <source mode="bind"/>
+      <target type="virtio" name="org.qemu.guest_agent.0"/>
+    </channel>
+    <input type="tablet" bus="usb"/>
+    <input type="keyboard" bus="usb"/>
+    <tpm>
+      <backend type="emulator"/>
+    </tpm>
+    <graphics type="vnc" port="-1"/>
+    <video>
+      <model type="virtio"/>
+    </video>
+  </devices>
+  <on_reboot>destroy</on_reboot>
+</domain>
+
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (installer:589) Generated final_xml:
+<domain type="kvm">
+  <name>MasteringKVM01</name>
+  <uuid>456fd994-561e-42cb-a0df-562ef0bdac15</uuid>
+  <memory>1048576</memory>
+  <currentMemory>1048576</currentMemory>
+  <vcpu>1</vcpu>
+  <os firmware="efi">
+    <type arch="aarch64" machine="virt">hvm</type>
+    <boot dev="hd"/>
+  </os>
+  <features>
+    <acpi/>
+  </features>
+  <cpu mode="host-model"/>
+  <clock offset="utc"/>
+  <devices>
+    <emulator>/usr/bin/qemu-system-aarch64</emulator>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2" discard="unmap"/>
+      <source file="/var/lib/libvirt/images/MasteringKVM01.qcow2"/>
+      <target dev="vda" bus="virtio"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <target dev="sda" bus="scsi"/>
+      <readonly/>
+    </disk>
+    <controller type="usb" model="qemu-xhci" ports="15"/>
+    <controller type="scsi" model="virtio-scsi"/>
+    <controller type="pci" model="pcie-root"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <controller type="pci" model="pcie-root-port"/>
+    <interface type="network">
+      <source network="default"/>
+      <mac address="52:54:00:df:e5:c8"/>
+      <model type="virtio"/>
+    </interface>
+    <console type="pty"/>
+    <channel type="unix">
+      <source mode="bind"/>
+      <target type="virtio" name="org.qemu.guest_agent.0"/>
+    </channel>
+    <input type="tablet" bus="usb"/>
+    <input type="keyboard" bus="usb"/>
+    <tpm>
+      <backend type="emulator"/>
+    </tpm>
+    <graphics type="vnc" port="-1"/>
+    <video>
+      <model type="virtio"/>
+    </video>
+  </devices>
+</domain>
+
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (installer:103) Removing created disk path=/var/lib/libvirt/images/MasteringKVM01.qcow2 vol_object=<libvirt.virStorageVol object at 0xffff7d261b20>
+Removing disk 'MasteringKVM01.qcow2'                                                                                  |    0 B  00:00:00     
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (cli:256)   File "/usr/bin/virt-install", line 8, in <module>
+    virtinstall.runcli()
+  File "/usr/share/virt-manager/virtinst/virtinstall.py", line 1233, in runcli
+    sys.exit(main())
+  File "/usr/share/virt-manager/virtinst/virtinstall.py", line 1226, in main
+    start_install(guest, installer, options)
+  File "/usr/share/virt-manager/virtinst/virtinstall.py", line 974, in start_install
+    fail(e, do_exit=False)
+  File "/usr/share/virt-manager/virtinst/cli.py", line 256, in fail
+    log.debug("".join(traceback.format_stack()))
+
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] ERROR (cli:257) unsupported configuration: CPU mode 'host-model' for aarch64 kvm domain on aarch64 host is not supported by hypervisor
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (cli:259) 
+Traceback (most recent call last):
+  File "/usr/share/virt-manager/virtinst/virtinstall.py", line 954, in start_install
+    domain = installer.start_install(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/share/virt-manager/virtinst/install/installer.py", line 695, in start_install
+    domain = self._create_guest(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/share/virt-manager/virtinst/install/installer.py", line 637, in _create_guest
+    domain = self.conn.createXML(initial_xml or final_xml, 0)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/libvirt.py", line 4529, in createXML
+    raise libvirtError('virDomainCreateXML() failed')
+libvirt.libvirtError: unsupported configuration: CPU mode 'host-model' for aarch64 kvm domain on aarch64 host is not supported by hypervisor 
+[Wed, 11 Feb 2026 07:34:37 virt-install 7152] DEBUG (cli:272) Domain installation does not appear to have been successful.
+If it was, you can restart your domain by running:
+  virsh --connect qemu:///system start MasteringKVM01
+otherwise, please restart your installation.
+Domain installation does not appear to have been successful.
+If it was, you can restart your domain by running:
+  virsh --connect qemu:///system start MasteringKVM01
+otherwise, please restart your installation.
+root@master-1:/var/lib/libvirt/images# 

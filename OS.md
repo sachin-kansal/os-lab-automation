@@ -89,30 +89,3 @@ ping 192.168.31.56
 
 56 --> 185 working
 185 --> 56 not working
-
-
--rw-r--r--. 1 root root 1805 Nov  8 19:30 ca.crt
--rw-------. 1 root root 3272 Nov  8 19:30 ca.key
--rw-r--r--. 1 root root   41 Nov  8 19:30 ca.srl
--rw-r--r--. 1 root root 1903 Nov  8 19:30 server.crt
--rw-r--r--. 1 root root 1704 Nov  8 19:30 server.csr
--rw-------. 1 root root 3272 Nov  8 19:30 server.key
-[root@central-log journal-remote]# pwd
-/etc/systemd/journal-remote
-
-
-
-{ 
- UID_MIN=$(awk '/^\s*UID_MIN/{print $2}' /etc/login.defs) 
- [ -n "${UID_MIN}" ] && awk "/^ *-a *always,exit/ \ 
- &&/ -F *arch=b(32|64)/ \ 
- &&(/ -F *auid!=unset/||/ -F *auid!=-1/||/ -F *auid!=4294967295/) \ 
- &&/ -S/ \ 
- &&/ -F *auid>=${UID_MIN}/ \ 
- &&(/chmod/||/fchmod/||/fchmodat/ \ 
-   ||/chown/||/fchown/||/fchownat/||/lchown/ \ 
-   ||/setxattr/||/lsetxattr/||/fsetxattr/ \ 
-   ||/removexattr/||/lremovexattr/||/fremovexattr/) \ 
- &&(/ key= *[!-~]* *$/||/ -k *[!-~]* *$/)" /etc/audit/rules.d/*.rules \ 
- || printf "ERROR: Variable 'UID_MIN' is unset.\n" 
-}
