@@ -11,6 +11,7 @@
     # - q1_user
     # - q2_fileandtemplates
     # - q3_installing_docker
-    - elasticsearch
-    - kibana
-    - filebeat
+    # - elasticsearch
+    # - kibana
+    # - filebeat
+    - vault

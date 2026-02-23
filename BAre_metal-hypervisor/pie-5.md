@@ -53,10 +53,11 @@ network:
 
 to read and write and increase on hdd instead of sd which can wear off.
 
-
+``` bash
 umount /dev/sda1 2>/dev/null
 
 fdisk /dev/sda1
+
 Welcome to fdisk (util-linux 2.39.3).
 Changes will remain in memory only, until you decide to write them.
 Be careful before using the write command.
@@ -105,3 +106,4 @@ mount /dev/sda1 /srv
 
 mount --bind /srv/libvirt /var/lib/libvirt
 
+```

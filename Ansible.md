@@ -29,7 +29,7 @@ Ansible comes with a rich set of built-in modules to manage systems and applicat
 
 Here are the major built-in Ansible module categories and popular modules under each:
 
-🖥️ 1. System Modules
+1. System Modules
 
 Used for user, group, service, and file system management.
 
@@ -43,7 +43,7 @@ cron	| Manage cron jobs
 timezone  |Set system time zone
 sysctl	|Manage sysctl settings
 
-📁 2. File Modules
+2. File Modules
 
 Handle files, directories, permissions, and content.
 
@@ -57,7 +57,7 @@ blockinfile|	Add a block of lines in a file
 replace|	Replace patterns in files
 assemble|	Combine fragments into one file
 
-🛠️ 3. Command & Shell Modules
+3. Command & Shell Modules
 
 Run shell or command-line utilities.
 
@@ -68,7 +68,7 @@ shell	| Run shell commands with shell features
 raw	 | Send raw command (used for bootstrapping)
 script|	Upload and execute a local script
 
-🧪 4. Package Management Modules
+4. Package Management Modules
 
 Manage software packages.
 
@@ -82,7 +82,7 @@ All	package	Generic package handler
 
 Python	pip	Manage Python packages
 
-🌐 5. Networking Modules
+5. Networking Modules
 
 Configure network settings or services.
 
@@ -91,7 +91,8 @@ firewalld	Manage firewall rules
 ufw	Manage uncomplicated firewall
 nmcli	Manage network using NetworkManager CLI
 iptables	Manage iptables rules
-💾 6. Storage Modules
+
+ 6. Storage Modules
 
 Manage disks, filesystems, and mounts.
 
@@ -100,7 +101,8 @@ mount	Mount or unmount a filesystem
 lvg	Create/manage LVM volume groups
 lv	Create/manage LVM logical volumes
 parted	Create partitions
-👥 7. Identity Modules
+
+7. Identity Modules
 
 Manage authentication and identity systems.
 
@@ -109,21 +111,24 @@ authorized_key	Manage SSH authorized keys
 openssh_keypair	Generate SSH key pairs (newer versions)
 seboolean	Manage SELinux booleans
 selinux	Manage SELinux state
-📦 8. Archive & Compression
+
+8. Archive & Compression
 
 Handle archive files.
 
 Module	Description
 unarchive	Unpack archive files (e.g., tar.gz, zip)
 archive	Create archive files
-💻 9. Facts & Setup
+
+9. Facts & Setup
 
 Gather system information.
 
 Module	Description
 setup	Gather facts about the system
 ansible_facts	Access facts in playbooks
-☁️ 10. Cloud Modules
+
+10. Cloud Modules
 
 Manage cloud resources (via collections):
 
@@ -131,7 +136,8 @@ Cloud	Module Examples
 AWS	ec2, s3_bucket, rds (via amazon.aws)
 Azure	azure_rm_* modules (via azure.azcollection)
 GCP	gcp_* modules (via google.cloud)
-📚 Others
+
+11. Others
 Module	Description
 get_url	Download files from a URL
 uri	Interact with web services (HTTP requests)

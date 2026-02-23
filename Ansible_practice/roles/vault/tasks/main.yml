@@ -1,0 +1,70 @@
+- name: check if gpg key exists
+  stat:
+    path: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  register: gpg_file
+
+- name: Download HashiCorp GPG key
+  get_url:
+    url: https://apt.releases.hashicorp.com/gpg
+    dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+- name: Add HashiCorp repository
+  apt_repository:
+    repo: "deb [arch={{ ansible_architecture }} signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+    state: present
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    name: vault
+
+- name: create vault user
+  user:
+    name: vault
+    system: true
+    password: "!"
+    path: "/etc/vault.d"
+
+- name: create directories
+  file:
+    path: "/srv/vault/{{ item }}"
+    state: directory
+    owner: "vault"
+    recurse: true
+    mode: "0755"
+  loop:
+    - data
+    - log
+    - audit
+
+- name: create systemd unit file
+  template:
+    src: vault.service
+    dest: /etc/systemd/system/vault.service
+
+- name: update vault.hcl config
+  template:
+    src: vault.hcl
+    dest: "/etc/vault.d/vault.hcl"
+    owner: vault
+
+- name: enable and run vault
+  ansible.builtin.systemd_service:
+    state: started
+    name: vault
+    enabled: true
+    daemon_reload: true
+
+- name: Initialize Vault
+  command: vault operator init -format=json
+  environment:
+    VAULT_ADDR: "http://{{ inventory_hostname }}:8200"
+  register: vault_init
+
+- name: Save encrypted vault secrets
+  copy:
+    content: "{{ vault_init.stdout }}"
+    dest: group_vars/vault-secrets.json
+
+- name: Encrypt secrets file
+  command: ansible-vault encrypt group_vars/vault-secrets.json

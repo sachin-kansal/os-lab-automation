@@ -1,0 +1,33 @@
+virt-install \
+ --virt-type=kvm \
+ --name MasteringKVM01 \
+ --vcpus 1 \
+ --ram 2048 \
+ --disk size=16 \
+ --os-variant rocky9 \
+ --network network=default \
+ --graphics none \
+ --console pty,target_type=serial \
+ --location https://dl.rockylinux.org/pub/rocky/9/BaseOS/aarch64/os/
+ --extra-args "console=ttyAMA0"
+
+
+with gui 
+
+virt-install \
+  --virt-type=kvm \
+  --name MasteringKVM01 \
+  --vcpus 1 \
+  --ram 2048 \
+  --os-variant=generic \
+  --cdrom=/var/lib/libvirt/images/Rocky-9.7-aarch64-minimal.iso \
+  --network=default \
+  --graphics vnc \
+  --disk size=16 \
+  --arch aarch64 \
+  --machine virt
+
+clean up the node
+
+virsh destroy MasteringKVM01
+virsh undefine MasteringKVM01 --nvram --remove-all-storage
