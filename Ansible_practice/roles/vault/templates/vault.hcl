@@ -14,6 +14,6 @@ storage "file" {
 
 #HTTP listener
 listener "tcp" {
-  address = "192.168.31.50:8200"
+  address = "{{ ansible_default_ipv4.address }}:8200"
   tls_disable = 1
 }
